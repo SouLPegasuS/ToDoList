@@ -3,6 +3,8 @@ import React from "react";
 function InputArea(props) {
   const [inputText, setInputText] = React.useState("");
 
+  // props.toggle?setInputText(""):setInputText(props.text);
+
   function handleChange(event) {
     const newValue = event.target.value;
     setInputText(newValue);
@@ -11,19 +13,20 @@ function InputArea(props) {
   return (
     <div className="form">
       <input onChange={handleChange} type="text" value={inputText} />
-      {/* <button
-        onClick={() => {
-          props.onAdd(inputText);
-          setInputText("");
-        }}
-      > */}
-      <i class="fas fa-plus" 
+      {props.toggle?
+        <i class="fas fa-plus" 
           onClick={() => {
           props.onAdd(inputText);
           setInputText("");
         }}>  
-      </i>
-      {/* </button> */}
+        </i>
+        :
+        <i class="far fa-edit" 
+          onClick={() => {
+          props.onAdd(inputText);
+          setInputText("");
+        }}>  
+        </i>}
     </div>
   );
 }

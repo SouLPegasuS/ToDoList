@@ -6,4 +6,6 @@ router.post("/add", middle.isAuth, todoCtrl.addItem);
 
 router.post("/delete", middle.isAuth, todoCtrl.deleteItem);
 
+router.post("/update", middle.isAuth, todoCtrl.updateItem);
+
 module.exports = router;

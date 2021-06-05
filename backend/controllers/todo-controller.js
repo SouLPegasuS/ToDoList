@@ -44,6 +44,35 @@ const addItem = (req, res, next) => {
     }
 }
 
+const updateItem = (req, res, next) => {
+    if(!(req.body.task)){
+        return res.json("Todo item can't be blank");
+    }
+    try{    
+        if(req.user === null) {
+            return res.json("You Are Not Authenticated");
+        } 
+        else{    
+            // from mongoDB documentation on update documents in array
+            User.updateOne({_id: req.user._id, "items._id": req.body.id}, 
+                           {$set: {"items.$.data": req.body.task}}, function(err){
+                if(!err){
+                    User.findById(req.user.id, function(err, foundUser){
+                        foundUser.save(function(){
+                            console.log("deleted item");
+                            // console.log(foundUser.items);
+                            res.json(foundUser.items);
+                        })
+                    })
+                }
+            })
+        }
+    }
+    catch(err){
+        res.json(next(err));
+    }
+}
+
 const deleteItem = (req, res, next) => {
     try{    
         if(req.user === null) {
@@ -68,4 +97,4 @@ const deleteItem = (req, res, next) => {
     }
 }
 
-module.exports = { addItem, deleteItem }
+module.exports = { addItem, deleteItem, updateItem }
