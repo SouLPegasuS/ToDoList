@@ -65,8 +65,8 @@ function ToDo() {
           <h1>To-Do List</h1>
         </div>
         <InputArea onAdd={addItem} />
-        <div>
-          <ul>
+        <div className="all-items">
+          {/* <ul> */}
             {items.map((todoItem, index) => (
               <ToDoItem
                 key={index}
@@ -75,7 +75,7 @@ function ToDo() {
                 onChecked={deleteItem}
               />
             ))}
-          </ul>
+          {/* </ul> */}
         </div>
       </div>
       <Footer/>

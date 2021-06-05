@@ -66,42 +66,50 @@ body {
     margin-bottom: 20px;
   }
   
-  .form input:focus {
-    outline: none;
-  }
+.form input:focus {
+  outline: none;
+}
   
-  button {
-    padding: 0;
-    border: none;
-    width: 60px;
-    font-family: "Architects Daughter", cursive;
-    text-decoration: none;
-    padding-bottom: 3px;
-    background-color: #ffeaa7;
-    border-radius: 5px;
-    border: 2px solid hsl(198, 1%, 29%);
-  }
+.fas,.far{
+  cursor: pointer;
+}
+
+.each-item {
+  padding: 1.2rem 0.5rem;
+  border-radius: 0.5rem;
+  max-width: 550px;
+  min-width: 300px;
+  word-break: break-word;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+p{
+  margin-bottom: 0;
+  margin-right: 16px;
+  text-align: left;
+}
+
+.todo-btn{
+  width: 5rem;
+  display: flex;
+  justify-content: space-around;
+}
+
+.fa-plus:hover{
+  color: green;
+}
+
+.fa-edit:hover{
+  color: blue;
+}
+
+.fa-trash-alt:hover{
+  color: red;
+}
   
-  button:hover{
-    background-color: #fdcb6e;
-  }
-  
-  button span {
-    background: #f1f5f8;
-    background-color: #ffeaa7;
-    display: block;
-    padding: 0.5rem 1rem;
-    border-radius: 5px;
-    border: 2px solid hsl(198, 1%, 29%);
-  }
-  
-  li {
-    text-align: left;
-    position: relative;
-    padding: 0.5rem;
-  }
-  
-  footer{
-    margin: 20 auto;
-  }
+.footer{
+  margin: 20px auto;
+}
   

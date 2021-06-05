@@ -11,14 +11,19 @@ function InputArea(props) {
   return (
     <div className="form">
       <input onChange={handleChange} type="text" value={inputText} />
-      <button
+      {/* <button
         onClick={() => {
           props.onAdd(inputText);
           setInputText("");
         }}
-      >Add
-        {/* <span>Add</span> */}
-      </button>
+      > */}
+      <i class="fas fa-plus" 
+          onClick={() => {
+          props.onAdd(inputText);
+          setInputText("");
+        }}>  
+      </i>
+      {/* </button> */}
     </div>
   );
 }
