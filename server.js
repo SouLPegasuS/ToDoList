@@ -6,6 +6,8 @@ const passport = require("passport");
 const cors = require("cors");
 const app = express();
 
+const PORT = process.env.PORT || 4000;
+
 const User = require("./models/model").User;
 const userRoutes = require("./routes/user-routes");
 const todoRoutes = require("./routes/todo-routes");
