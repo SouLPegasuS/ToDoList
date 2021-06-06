@@ -23,18 +23,20 @@ app.use(passport.initialize());
 app.use(passport.session());
 passport.use(User.createStrategy());
 
-// app.use(express.static("../client/public"));
-// const path = require("path");
-// app.get("/", function(req, res) {
-//     res.sendFile(path.join(__dirname,"../client/public","index.html"));
-// });
-
 // app.use(cors({
 //   origin: "http://localhost:3000/"
 // }));
 
 app.use("/users", userRoutes);
 app.use("/todo", todoRoutes);
+
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("../client/build"));
+}
+// const path = require("path");
+// app.get("/", function(req, res) {
+//     res.sendFile(path.join(__dirname,"../client/public","index.html"));
+// });
 
 app.listen(4000, () => {
     console.log("Server started on port 4000");
