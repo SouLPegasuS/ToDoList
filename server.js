@@ -25,7 +25,9 @@ app.use(passport.initialize());
 app.use(passport.session());
 passport.use(User.createStrategy());
 
-app.use(cors());
+app.use(cors({
+  origin: "https://todo-list-reactapp.herokuapp.com/"
+}));
 
 app.use("/users", userRoutes);
 app.use("/todo", todoRoutes);
