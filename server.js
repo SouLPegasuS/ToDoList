@@ -25,21 +25,19 @@ app.use(passport.initialize());
 app.use(passport.session());
 passport.use(User.createStrategy());
 
-// app.use(cors({
-//   origin: "http://localhost:3000/"
-// }));
+app.use(cors());
 
 app.use("/users", userRoutes);
 app.use("/todo", todoRoutes);
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
+  // const path = require("path");
+  // app.get("*", function(req, res) {
+  //     res.sendFile(path.resolve(__dirname,"client","build","index.html"));  
+  // });
 }
-// const path = require("path");
-// app.get("*", function(req, res) {
-//     res.sendFile(path.resolve(__dirname,"client","build","index.html"));
-// });
 
-app.listen(4000, () => {
+app.listen(PORT, () => {
     console.log(`Server started on port ${PORT}`);
 });
