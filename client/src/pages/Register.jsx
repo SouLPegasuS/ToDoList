@@ -40,7 +40,7 @@ const Register = () => {
                     type="email" 
                     value={username}
                     onChange={(e) => setUsername(e.target.value)}
-                    placeholder="Email" 
+                    placeholder="Username" 
                     autoComplete="off" 
                     style={{width: "300px"}}
                     className="mt-3 pt-2 pb-2 pr-2 pl-2"
